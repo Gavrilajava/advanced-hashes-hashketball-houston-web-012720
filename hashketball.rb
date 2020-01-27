@@ -1,4 +1,5 @@
 # Write your code here!
+require 'pry'
 
 def game_hash
   {
@@ -41,7 +42,11 @@ def game_hash
           number: 1,
           shoe: 19,
           points: 26,
+
           rebounds: 11,
+
+          rebounds: 12,
+
           assists: 6,
           steals: 3,
           blocks: 8,
@@ -80,7 +85,11 @@ def game_hash
           points: 12,
           rebounds: 4,
           assists: 7,
+
           steals: 22,
+
+          steals: 7,
+
           blocks: 15,
           slam_dunks: 10
         }, {
@@ -110,7 +119,11 @@ def game_hash
           points: 6,
           rebounds: 12,
           assists: 12,
+
           steals: 7,
+
+          steals: 22,
+
           blocks: 5,
           slam_dunks: 12
         }
@@ -159,6 +172,7 @@ def test2
   puts player_numbers("Charlotte Hornets")
   
 end
+
 
 def num_points_scored(player_name)
   player(player_name)[:points]
@@ -244,5 +258,40 @@ def test3
   puts winning_team
 end
 
+
+def num_points_scored(player_name)
+  player(player_name)[:points]
+end
+
+def shoe_size(player_name)
+  player(player_name)[:shoe]
+end
+
+def team_colors(team_name)
+  team = teams.find { |team|
+    team[:team_name] == team_name
+  }
+  team[:colors]
+end
+
+def team_names
+  names = []
+  teams.each { |team|
+    names << team[:team_name]
+  }
+  names
+end
+
+def player_numbers(team_name)
+  
+  numbers = get_team(team_name)[:players].map { |player|
+    player[:number]
+  }
+  numbers.sort
+end
+
+def player_stats(player_name)
+  
+end
 
 
